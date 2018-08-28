@@ -1,0 +1,92 @@
+
+* {-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */}
+.menu-text{text-align:center;text-transform: uppercase;font-weight: 600;letter-spacing: 0px}
+.mybadge{position: absolute;margin-left: 14px;top:4px;opacity: 0.7;padding: 2px 6px}
+body {padding-top: 58px;letter-spacing: 1px!important}
+.modal-search, .modal-menu{width:185px;float:right}
+.img-left_menu{width: 25px;float:left;margin-right:10px}
+.menu-padding {margin: 4px 0px 16px}
+.bold{font-weight: bold}
+.gradient{z-index:1;background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 89%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 89%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 89%,rgba(0,0,0,0.65) 100%);
+position: absolute; min-height: 225px;width: 100%;margin-top: -225px}
+.country_txt{margin-top:60px;margin-left:5px;z-index:2}
+.blueish{background:#50768F}
+.orangish{background:#EE6420}
+.w3-text-blueish{color:#50768F}
+.w3-text-orangish{color:#EE6420}
+img.trolley-logo-card {width: 60px;height: 60px;margin: auto;border-radius: 50%;padding: 5px;margin-top: 30px;top: 92px;display: block;z-index: 1;position: relative}
+.requester-pic-2 {width:120px; margin: auto;display: block;background: white;border-radius: 50%;margin-top: 10px;margin-bottom: 10px;z-index: 2;border: 1px solid #fff;height: 120px;position: relative;object-fit: cover}
+.brd-bt-4{border-bottom-right-radius: 4px; border-bottom-left-radius: 4px}
+.fl1{width:94%;margin-left:3%;height:352px;margin-bottom:-355px;z-index:0}
+.fl2{width:92%;margin-left:4%;height:356px;margin-bottom:-356px;z-index:0}
+.fl0{width:96%;margin-left:2%;z-index:99}
+.see_all{text-align:right;margin: 10px 0 0px}
+.slide-hot {display:none}
+.hot-img {height:13px;width:13px;padding:0}
+.hot-img-prod {height:140px;width:300px;background-position:center;background-size: contain; background-repeat: no-repeat}
+.w3-black-40{background:rgba(0,0,0,0.4);color: #FFF!important}
+.scroll-h{overflow:auto;white-space: nowrap}
+div.scroll-h div{display:inline-block}
+.scroll-h-size{width:250px;height:140px;margin: 0px 8px}
+.scroll-h-size-2{width:150px;height:200px;margin: 0px 8px}
+.requester-pic-3 {width:100px; margin: auto;display: block;background:#EE6420;border-radius: 50%;margin-top: 10px;margin-bottom: 10px;z-index: 2;border: 2px solid #EE6420;height: 100px;position: relative;object-fit: cover}
+.bd-bl-bt-r{border-bottom-left-radius:4px;border-top-right-radius:4px}
+.fixed-btn{right: 8px;width: 50px;position: fixed;bottom: 8px;z-index:2}
+.half-top, .half-bottom {height: 50%}
+.animate,.request_form{z-index:100;top:0px;position:fixed}
+.full-w-h{width:100%;height:100%}
+.img-posts{width:50px;margin:-30px auto}
+.countries{margin:8px 0px 8px 0px;float:right;width:27px}
+.activated{float: left; width:50px}
+.pd-8{padding:8px}
+.countries_selector{position:fixed;width:50px;height:auto;right:-1px;bottom:75px;top:108px;z-index:99;overflow-y:scroll}
+.pd-5-bdr-8{padding: 0px 5px;border-radius:8px}
+.border-50-orange-30{width: 30px;margin: auto;border-radius: 50%;border: 2px solid #EE6420;height: 30px}
+.cnt-mrg-6-6{text-align:center;margin: 6px 0 6px}
+.mrg-0-9{margin: 0px 9px}
+.h-100{height:100%}
+.select2-container{width: 100%!important}
+.select2-container .select2-selection--single{height: 34px!important}
+.select2-container--default .select2-selection--single .select2-selection__arrow{top: 4px!important}
+.select2-container--default .select2-selection--single .select2-selection__rendered{line-height: 32px!important}
+.img-home {position: relative;width:  100%;height: auto; background-position: 50% 50%;background-repeat: no-repeat;background-size:cover}
+.t-a-c{text-align:center}
+.text-max-size{max-width:220px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
+.img-center-mh{margin:0 auto;vertical-align: center}
+.travel-btn{height:58px}
+.btn-bring {border-radius: 46px;padding: 10px 50px}
+.my-check{width:20px;height:20px; vertical-align: text-top; margin: 0px 0px!important}
+.see-volume{border: 3px solid #50758F}
+.t-a-r-mrg-6-6{text-align: right;margin: 6px 0 6px}
+.pac-item {padding: 5px}
+.pac-logo:after{display:none!important}
+.user-badge{position: absolute;padding: 4px 4px;margin: -20px 0px 0px 20px; min-width: 28px;min-height: 28px}
+.profile-flag{height:22px;width:23px;background-position: center;background-size: cover}
+.pd-16-bdr-16 {padding: 0px 16px;border-radius: 16px}
+.inline{display: inline-block}
+.mrg-4{margin: 4px}
+div.scrollmenu {overflow: auto;width: 100%}
+div.scrollmenu div {display: inline-block}
+.user-foto{height:65px;width:65px;border:1px solid #777}
+.pd-2-w-auto{padding:2px; width:auto}
+.img-r{height: 20px;padding: 3px}
+.fa-10x{font-size: 10em}
+.input-lg,.input-group-addon,.bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table th,.bootstrap-datetimepicker-widget,.btn-lg {border-radius:0px}
+input[type="file"] {cursor: pointer}
+.file-btn {position: relative;}
+.file-btn input[type="file"] { position: absolute;top: 0;left: 0;width: 100%; height: 100%; opacity: 0}
+.demo-wrap {border-bottom: 1px solid #ddd;padding-top: 20px}
+.demo-wrap .container { padding-bottom: 10px;}
+.upload-demo .upload-demo-wrap,.upload-demo .upload-result,.upload-demo.ready .upload-msg {display: none}
+.upload-demo.ready .upload-demo-wrap {display: block}
+.upload-demo.ready .upload-result {display: inline-block}
+.upload-demo-wrap {margin: 0 auto}
+.upload-msg {text-align: center; padding: 50px;font-size: 22px;color: #aaa;width: 260px; margin: 50px auto; border: 1px solid #aaa}
+.cr-slider {-webkit-appearance: none!important;width: 100%!important;height: 25px!important;background: #d3d3d3!important;outline: none!important;opacity: 0.7!important;-webkit-transition: .2s;transition: opacity .2s}
+.cr-slider:hover {opacity: 1!important}
+.cr-slider::-webkit-slider-thumb {-webkit-appearance: none!important;border-radius: 50%;appearance: none!important; width: 40px!important;height: 40px!important; background: #4CAF50!important}
+.cr-slider::-moz-range-thumb {width: 40px!important;height: 40px!important;border-radius: 50%;background: #4CAF50!important;cursor: pointer!important}
+.show-breakdown {position: fixed; z-index: 9;right: 2em;top: 5px}
+.cr-slider-wrap{display: none}

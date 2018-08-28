@@ -1,0 +1,64 @@
+<div class="w3-animate-right full-w-h">
+
+<!-- HEADER -->
+
+
+<div class="fixed-btn" style="z-index: 101">
+  <button class="w3-button w3-card-2 w3-xlarge w3-circle w3-ripple w3-dark-grey" onclick="$('#menu-main-page').hide(),addNewJorneyOrRequest()"> 
+    <i class="fa fa-plus"></i>
+  </button>
+</div>
+
+    <div class="w3-row w3-padding w3-light-gray w3-text-dark-gray">
+        <div class="w3-col s3">
+            <i class="fa w3-xxlarge fa-chevron-left" onclick="$('#menu-main-page').hide()"></i>
+        </div>
+        <div class="w3-col s9">
+            <p class="t-a-r-mrg-6-6">
+                <i class="fa fa-address-card-o w3-large"></i>
+                <span class="_profile menu-text"></span>
+            </p>
+        </div>
+    </div>
+
+<!-- BODY -->
+    <div class="w3-row w3-white h-100">
+
+        <div class="user-profile-container"></div>
+        
+        <div class="w3-row w3-padding-16 w3-white w3-border-bottom w3-small" onclick="getUserRequestJourneysReviews('Request',localStorage.getItem('idcliente'))">
+            <div class="w3-col s1">&nbsp;</div>
+            <div class="w3-col s10">
+                <span class="_my"></span> <span class="_requests"></span> 
+            </div>
+            <div class="w3-col s1">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div>
+
+        <div class="w3-row w3-padding-16 w3-white w3-border-bottom w3-small" onclick="getUserRequestJourneysReviews('Journey',localStorage.getItem('idcliente'))">
+            <div class="w3-col s1">&nbsp;</div>
+            <div class="w3-col s10">
+                <span class="_my_f"></span> <span class="_journeys"></span> 
+            </div>
+            <div class="w3-col s1">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div>
+   
+<!--
+        <div class="w3-row w3-padding-16 w3-white w3-border-bottom w3-small" onclick="getUserRequestJourneysReviews('Review',localStorage.getItem('idcliente'))">
+            <div class="w3-col s1">&nbsp;</div>
+            <div class="w3-col s10">
+                <span class="_my_f"></span> <span class="_reviews"></span> 
+            </div>
+            <div class="w3-col s1">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div>
+-->
+        <div class="w3-row w3-padding-64 w3-white">
+        </div>
+
+    </div>
+</div>

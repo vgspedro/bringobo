@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+  <title>Bringobo</title>
+</head>
+
+<body>
+
+<!--LOADER -->
+
+<div class="w3-overlay">
+  <div class="w3-display-middle w3-center">
+    <i class="w3-text-orange fa-10x fa fa-circle-o-notch fa-spin" style="margin-bottom:10px!important"></i>
+  </div>
+</div>
+
+<!-- MODAL INFO CLIENT -->
+<div id="info-client" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="w3-xlarge close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title info-client-header w3-xlarge"></h4>
+      </div>
+      <div class="modal-body">
+        <p class="info-client-txt w3-medium"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal"><span class="_close"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PASSWORD FORGET -->
+
+<div id="password-forget" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close w3-xlarge" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title w3-xlarge password-forget-header w3-text-blue"><i class="fa fa-info-circle"></i> <span class="_please_insert_email"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-password-forget">
+          <div class="input-group">
+            <div class="input-border-bottom-color input-group-addon">
+              <i class="fa fa-envelope-o"></i> <span class='w3-large w3-text-red'>*</span>
+            </div>
+            <input name="email" type="email" class="w3-input login-text-color input-login input-border-bottom-color _email" placeholder="Email" value="">
+          </div>
+           <div class="w3-center bold w3-animate-zoom w3-text-red w3-hide email-r-p _required"></div>
+          <input name="rquest" value="resetPassword" type="hidden">
+          <br>
+          <br>
+          <p class="w3-center">
+            <button class="btn btn-lg btn-bring _submit" type="submit"></button>
+          </p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal"><span class="_close"></span></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="w3-padding-16 login-form w3-hide w3-animate-opacity">
+
+  <!--  DELETE ME
+  <div class="w3-section w3-center" style="background:rgba(255,0,0,0.6)">
+    <marquee>
+      <font class="w3-large w3-text-white">this is development</font>
+    </marquee>
+  </div>
+ DELETE ME -->
+
+
+
+<img class="img-responsive logo-img" src='img/login-logo.png' style="max-width:150px">
+
+<div class="w3-display-middle w3-center" style="min-width:90%">  
+    <form id="form-login">
+
+  <div class="input-group">
+    <div class="input-border-bottom-color input-group-addon">
+      <i class="fa fa-envelope-o"></i> <span class='w3-large w3-text-red'>*</span>
+    </div>
+    <input name="email" type="email" class="w3-input login-text-color input-login input-border-bottom-color _email" placeholder="Email" value="">
+  </div>
+      <div class="bold w3-animate-zoom w3-text-red w3-hide email-l _required"></div>
+  <div class="input-group">
+      <div class="input-border-bottom-color input-group-addon">
+        <i class="fa fa-lock"></i> <span class='w3-large w3-text-red'>*</span>
+      </div>
+      <input name="password" type="password" class="w3-input input-login login-text-color input-border-bottom-color _password" placeholder ="Password" value="">
+    </div>
+       <div class="bold w3-animate-zoom w3-text-red w3-hide password-l _required"></div>
+      <input name="rquest" value="login" type="hidden">
+      <br>
+      <button class="btn btn-lg btn-bring _signin" type="submit"></button>
+    </form>
+</div>
+<div class="w3-display-bottommiddle w3-center mrg-bottom-20" style="min-width:90%">  
+    <br>
+    <span class="login-text-color _forgot_your_password" onclick="$('#password-forget').modal()"></span>
+    <br>
+    <span class="login-text-color _doesnt_have_an_account" onclick="$('.login-form').addClass('w3-hide');$('.register-form').removeClass('w3-hide')"></span>
+    <br>
+     <br>
+</div>
+
+</div>
+
+<div class="w3-padding-16 w3-hide register-form">
+<img class="img-responsive logo-img" src='img/login-logo.png' style="max-width:150px">
+<div class="w3-padding-32 w3-padding-small w3-center" style="min-width:90%">  
+    <form id="form-register">
+    <div class="input-group">
+    <div class="input-border-bottom-color input-group-addon">
+      <i class="fa fa-user-o"></i> <span class='w3-large w3-text-red'>*</span>
+    </div>
+    <input name="username" type="text" class="w3-input login-text-color input-login input-border-bottom-color _name">
+  </div>
+  <div class="bold w3-animate-zoom w3-text-red w3-hide name-fr _required"></div>
+  <div class="input-group">
+    <div class="input-border-bottom-color input-group-addon">
+      <i class="fa fa-envelope-o"></i> <span class='w3-large w3-text-red'>*</span>
+    </div>
+    <input name="email" type="email" class="w3-input login-text-color input-login input-border-bottom-color _email" placeholder="Email">
+  </div>
+  <div class="bold w3-animate-zoom w3-text-red w3-hide email-fr _required"></div>
+  <div class="input-group">
+    <div class="input-border-bottom-color input-group-addon">
+      <i class="fa fa-lock"></i><span class='w3-large w3-text-red'>*</span>
+    </div>
+    <input name="password" type="password" class="w3-input input-login login-text-color input-border-bottom-color _password">
+  </div>
+  <div class="bold w3-animate-zoom w3-text-red w3-hide password-fr _required"></div>
+  <div class="input-group">
+    <div class="input-border-bottom-color input-group-addon">
+      <i class="fa fa-lock"></i><span class='w3-large w3-text-red'>*</span>
+    </div>
+    <input name="conf_password" type="password" class="w3-input input-login login-text-color input-border-bottom-color _confirm_password">
+  </div>
+  <div class="bold w3-animate-zoom w3-text-red w3-hide confirm-password-fr _required"></div>
+      <input name="rquest" value="register" type="hidden">
+      <br>
+      <button class="btn btn-lg btn-bring _register" type="submit"></button>
+    </form>
+<br>
+    <span class="login-text-color _back_to_login" onclick="$('.login-form').removeClass('w3-hide');$('.register-form').addClass('w3-hide')"></span>
+<br>  
+<br>
+<p class="w3-center" class="w3-padding-small w3-small _aggreement"></p> 
+</div>
+</div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  
+  <script>
+    app.initialize()
+    
+    username = localStorage.getItem("username")
+
+    if(username) location.href = 'index.html','blank'
+
+  setTimeout(function(){
+      $('body').css('background','rgb(246,246,246)')
+      $('.login-form').removeClass('w3-hide')
+    }, 2500)
+
+
+</script>
+</body>
+</html>
+
+

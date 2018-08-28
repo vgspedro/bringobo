@@ -1,0 +1,1450 @@
+<div class="fixed-btn minus-btn" style="z-index:101">
+  	<button class="w3-button w3-xlarge w3-card-2 w3-circle w3-ripple w3-blue" onclick="clearNewJorneyOrRequest()"> 
+    	<i class="fa fa-minus"></i>
+  	</button>
+ </div>
+
+<div class="animate full-w-h w3-hide w3-text-white w3-xlarge">
+	<div class="w3-animate-bottom full-w-h">
+		<div class="half-top orangish w3-display-container" onclick="$('.animate, .minus-btn').addClass('w3-hide'); $('#request_form').show();updateRequestDataToForm()">
+ 			<div class="w3-display-middle w3-center">
+    			<img class="img-responsive img-posts" src ="img/request_white.png">
+    			<br>
+    			<span class="_post menu-text"></span>
+    			<br>
+    			<span class="_request menu-text"></span>
+  			</div>
+		</div>
+		<div class="half-bottom blueish w3-display-container" onclick="$('.animate, .minus-btn').addClass('w3-hide'); $('#journey_form').show()">
+ 			<div class="w3-display-middle w3-center">
+    			<img class="img-responsive img-posts" src="img/journey_white.png">
+    			<br>
+    			<span class="_post menu-text"></span>
+    			<br>
+    			<span class="_journey menu-text"></span>
+  			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="fixed-btn">
+  <button class="w3-button w3-card-2 w3-xlarge w3-circle w3-ripple w3-dark-grey" onclick="addNewJorneyOrRequest()"> 
+    <i class="fa fa-plus"></i>
+  </button>
+</div>
+-->
+
+<div id="request_form" class="w3-modal" style="padding-top:0px!important">
+
+
+	<div class="w3-hide w3-padding-small w3-animate-top show-breakdown w3-card-4 w3-blue" onclick="$(this).addClass('w3-hide')">
+	<span class="show-taxes-title"></span>
+	<span class="show-taxes-product"></span>
+	<span class="show-taxes-buying"></span>
+	<span class="show-taxes-size"></span>
+	<span class="show-taxes-weight"></span>
+	<span class="show-traveller-cmx"></span>
+	<span class="show-traveller-rec"></span>
+	<span class="show-taxes-payment"></span>
+	<span class="show-taxes-bringobo"></span>
+	<span class="show-taxes-total"></span>
+	</div>
+
+
+     <div class="w3-animate-left">
+
+		<div class="w3-row w3-padding orangish w3-text-white">
+			<div class="w3-col s3">
+				<i class="fa w3-xxlarge fa-chevron-left" onclick="clearNewJorneyOrRequest()"></i>
+			</div>
+			<div class="w3-col s9">
+				<p class="w3-right" style="margin:6px 0px 6px">
+					<img class="img-responsive img-left_menu" src="img/request_white.png">
+					<span class="_post menu-text" style="line-height:29px"></span>
+    				<span class="_request menu-text"></span>
+				</p>
+			</div>
+		</div>
+
+		<div class="w3-row w3-white" style="min-height: 100vh">
+			<div class="w3-row w3-padding-16 w3-text-dark-gray b1-unlock w3-border-bottom" onclick="showNewRequestFromBlocks('1','2','3','4')">
+				<div class="w3-col s3 w3-text-orangish">
+					<div class="border-50-orange-30">
+						<span class="mrg-0-9 w3-medium">1</span>
+					</div>
+				</div>
+				<div class="w3-col s8 w3-large">
+					<span class="_request"></span>
+					<span class="_a"></span>
+					<span class="_product"></span>
+				</div>
+				<div class="w3-col s1 w3-padding-4">
+					<i class="fa fa-chevron-right w3-medium"></i>
+				</div>
+			</div>
+
+<!--block 1 ini-->
+			<div class="w3-hide w3-animate-zoom b1 w3-padding w3-row">
+		
+	        	<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg " placeholder="URL" name="r-url" id="r-url">
+		        	<div class="bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+<!-- image upload -->
+				<div class="demo-wrap upload-demo">
+					<div class="w3-row w3-padding">
+						<div class="w3-col s12">
+							<div class="upload-msg" style="margin:0 auto">
+								<span class="_image menu-text"></span>
+								<div class="bold w3-animate-zoom w3-text-red _required"></div>
+							</div>
+							<div class="upload-demo-wrap">
+								<div id="upload-demo"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="w3-row">
+						<div class="w3-col s12 w3-center w3-margin-bottom">	
+							<a class="w3-text-white menu-text w3-button orangish btn-bring w3-small btn file-btn" id="r-image">
+								<span class="_upload"></span> <span class="_image"></span> 
+									<form id='fileinfo' name='fileinfo' onsubmit='return submitForm()'>
+										<input type="file" id="upload" name="file" value="Choose a file" accept="image/*"/>
+										<input type="hidden" name="r-image-name" id="r-image-name">
+								 	</form>
+								<div class="bold w3-animate-zoom w3-text-red _required"></div>
+							</a>
+							<div class="bold w3-animate-zoom w3-text-red _required"></div>
+						</div>
+					</div>
+				</div>
+
+				<div id="show-img-result" class="w3-light-gray" style="margin:0 auto; width:50%; margin-left:25%"></div>
+
+	        	<div class="form-group w3-col s12">
+		        	<input type="number" step="any" min="0" class="form-control input-lg _price_on_store_at" name="r-price" id="r-price">
+		        	<div class="bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+
+        		<div class="form-group w3-col s12">
+	        		<select class="form-control input-lg" name="r-category" id="r-category"></select>
+	        		<div class="bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+
+	        	<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _name" name="r-name" id="r-name">
+		        	<div class="bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+
+        		<div class="form-group w3-col s12">
+		        	<textarea id="r-description" rows="4" class="form-control input-lg _description_a" name="r-description"></textarea>
+		        	<div class="bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+				<button class="w3-button w3-right menu-text w3-text-white orangish btn-bring w3-small _next" onclick="showNewRequestFormBlockOne()"></button>
+			</div>
+
+	<!-- block 1 end-->
+
+			<div class="w3-row w3-padding-16 w3-text-dark-gray w3-opacity w3-border-bottom b2-unlock">
+				<div class="w3-col s3 w3-text-orangish">
+					<div class="border-50-orange-30">
+						<span class="mrg-0-9 w3-medium">2</span>
+					</div>
+				</div>
+				<div class="w3-col s8 w3-large">
+					<span class="_product"></span>
+					<span class="_information"></span>
+				</div>
+				<div class="w3-col s1 w3-padding-4">
+					<i class="fa fa-chevron-right w3-medium"></i>
+				</div>
+			</div>
+
+<!--block 2 ini-->
+
+			<div class="w3-hide w3-animate-zoom b2 w3-padding w3-row">
+
+<form id="request-part-2">
+
+				<div class="w3-section bold w3-large w3-padding-16"><span class="_where_to_buy"></span>?</div>
+
+	        	<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _store_name" id="r-buy-store" name="r-buy-store">
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<select class="form-control input-lg _country set-countries" id="r-buy-country" name="r-buy-country-id"></select>
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _city" id="r-buy-city" name ="r-buy-city">
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _zip_code" id="r-buy-zipcode" name="r-buy-zipcode">
+        		</div>
+
+        		<div class="form-group w3-col s12">
+					<div class="input-group">
+						<input type="text" readonly class="form-control input-lg _anytime" id="r-buy-wherever" name="r-buy-wherever">
+						<div class="input-group-addon w3-sand" onclick="$(this).prev().data('DateTimePicker').clear();$('#r-deliver-wherever').data('DateTimePicker').minDate(moment())">
+							<i class="w3-large fa fa-eraser"></i>
+						</div>
+					</div>
+        		</div>
+
+				<div class="w3-section bold w3-large w3-padding-16"><span class="_where_to_deliver"></span>?</div>
+	        	
+	        	<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _address" id="r-deliver-address" name="r-deliver-address">
+		        	<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<select class="form-control input-lg _country set-countries" id="r-deliver-country" name="r-deliver-country-id"></select>
+		        	<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _city" id="r-deliver-city" name="r-deliver-city">
+		        	<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+        		</div>
+        		<div class="form-group w3-col s12">
+		        	<input type="text" class="form-control input-lg _zip_code" id="r-deliver-zip-code" name="r-deliver-zip-code">
+		        	<div class="w3-hide bold w3-animate-zoom w3-text-red  _required"></div>
+        		</div>
+        		
+        		<div class="form-group w3-col s12">
+		        	<div class="input-group">
+						<input type="text" readonly class="form-control input-lg _anytime" id="r-deliver-wherever" name="r-deliver-wherever">
+						<div class="input-group-addon w3-sand" onclick="$(this).prev().data('DateTimePicker').clear();$(this).prev().data('DateTimePicker').minDate(moment())">
+							<i class="w3-large fa fa-eraser"></i>
+						</div>
+					</div>
+		        	<div class="w3-hide bold w3-animate-zoom w3-text-red r-deliver-wherever _required"></div>
+        		</div>
+        		<input type="hidden" name="empty">
+				</form>
+				<button class="w3-button w3-right menu-text w3-text-white orangish btn-bring w3-small _next" onclick="showNewRequestFormBlockTwo()"></button>
+
+			</div>
+
+<!-- block 2 end-->
+
+
+			<div class="w3-row w3-padding-16 w3-text-dark-gray w3-opacity w3-border-bottom b3-unlock">
+				<div class="w3-col s3 w3-text-orangish">
+					<div class="border-50-orange-30">
+						<span class="mrg-0-9 w3-medium">3</span>
+					</div>
+				</div>
+				<div class="w3-col s8 w3-large">
+					<span class="_product"></span>
+					<span class="_charateristics"></span>
+				</div>
+				<div class="w3-col s1 w3-padding-4">
+					<i class="fa fa-chevron-right w3-medium"></i>
+				</div>
+			</div>           
+
+			<div class="w3-hide w3-animate-zoom b3 w3-padding w3-row">
+
+				<form id="request-part-3">
+
+				<div class="w3-section bold w3-large w3-padding-16">
+					<span class='_product'></span>
+  					<span class='_charateristics'></span>
+  				</div>
+
+            <div class="form-group">
+                <label for="width" class="w3-col s2 w3-padding-8-8 control-label">
+                   	<img src="img/measure-horizontal.png" class="img-responsive">
+                </label>
+            	<div class="w3-col s10 w3-padding-8-8">
+					<div class="input-group">
+                        <input type="number" name="r-width" min="0" class=" _width form-control input-lg isNumeric maskedExt" id="r-width" maxlength="10" maskedformat="8,2" placeholder="Width">
+						<div class="input-group-addon">cm</div>
+					</div>
+					<div class="bold w3-animate-zoom w3-text-red _required"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+				<label for="height" class="w3-col s2 w3-padding-8-8 control-label">
+                    <img src="img/measure-vertical.png" class="img-responsive">
+                </label> 
+                <div class="w3-col s10 w3-padding-8-8">
+					<div class="input-group">
+                        <input type="number" name="r-height" min="0" class="_height form-control input-lg isNumeric maskedExt" id="r-height" maxlength="10" maskedformat="8,2" placeholder="Height">
+						<div class="input-group-addon">cm</div>
+					</div>
+					<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+                </div>
+            </div>
+
+			<div class="form-group">
+				<label for="length" class="w3-col s2 control-label w3-padding-8-8">
+                    <img src="img/icon_comprimento.png" class="img-responsive">
+                </label>
+                <div class="w3-col s10 w3-padding-8-8">
+						<div class="input-group">
+                        	<input type="number" name="r-length" min="0" class="_length form-control input-lg isNumeric maskedExt" id="r-length" maxlength="10" maskedformat="8,2" placeholder="Length">
+							<div class="input-group-addon">cm</div>
+						</div>
+						<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="volume" class="w3-col s2 w3-padding-8-8 control-label">
+                        <img src="img/measure-box.png" class="img-responsive">
+                    </label>
+                	<div class="w3-col w3-padding-8-8 s10">
+						<div class="input-group see-volume">
+                    		<input type="number" name="r-volume" min="0" class="_volume bold form-control input-lg isNumeric" id="r-volume" style="border-bottom:none" readonly="" placeholder="Volume">
+							<div class="input-group-addon">cm³</div>
+						</div>
+						<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+                	</div>
+                </div>
+
+				<div class="form-group">
+                    <label for="weight" class="w3-col s2 w3-padding-8-8 control-label">
+                        <img src="img/measure-scale.png" class="img-responsive">
+                    </label>
+                    <div class="w3-col w3-padding-8-8 s10">
+						<div class="input-group">
+                            <input type="number" name="r-weight" min="0" class="_weight form-control input-lg isNumeric maskedExt" id="r-weight" maxlength="10" maskedformat="8,2" placeholder="Weight">
+							
+							<div class="input-group-addon">grams</div>
+						</div>
+						<div class="w3-hide bold w3-animate-zoom w3-text-red _required"></div>
+                    </div>
+                </div>
+                <input type="hidden" name="empty">
+				</form>
+				<button class="w3-button w3-right menu-text w3-text-white orangish btn-bring w3-small _next" onclick="showNewRequestFormBlockTree()"></button>
+
+            </div>
+
+			<div class="w3-row w3-padding-16 w3-text-dark-gray w3-opacity w3-border-bottom b4-unlock">
+				<div class="w3-col s3 w3-text-orangish">
+					<div class="border-50-orange-30">
+						<span class="mrg-0-9 w3-medium">4</span>
+					</div>
+				</div>
+				<div class="w3-col s8 w3-large">
+					<span class="_confirmation"></span>
+				</div>
+				<div class="w3-col s1 w3-padding-4">
+					<i class="fa fa-chevron-right w3-medium"></i>
+				</div>
+			</div>
+			<div class="w3-hide w3-animate-zoom b4 w3-padding w3-row">
+
+				<form id="request-part-4">
+
+					<div class="w3-section bold w3-large w3-padding-16"><span class="_payment"></span></div>
+
+					<div class="w3-row w3-padding">
+	        			<div class="w3-col s6 w3-center">
+		        			<span class="btn btn-default r-pay btn-info btn-lg _pay_now" title="1" id="r-paynow" name="r-paynow"></span>
+        				</div>
+
+	        			<div class="form-group w3-col s6 w3-center">
+		        			<span type="text" title="2" class="btn btn-default r-pay btn-lg _pay_later" id="r-paylater" name="r-paylater"></span>
+        				</div>
+        				<input type="hidden" id="r-pay-type" name="r-pay-type" value="1">
+					</div>
+
+					<div class="w3-row">
+
+						<div class="w3-col s1">&nbsp;</div>
+						<div class="w3-section r-payment-type">
+							<button type="button" title="-1" class="pay-btn btn btn-info w3-col s2">
+								<img class="img-responsive img-center-mh" src="img/piggybank.png">
+							</button>
+							<button type="button" title="2" class="pay-btn btn btn-default w3-col s2">
+								<img class="img-responsive img-center-mh" src="img/mb.png">
+							</button>
+							<button type="button" title="1" class="pay-btn btn btn-default w3-col s2">
+								<img class="img-responsive img-center-mh" src="img/paypal.png">
+							</button>
+							<button type="button" title="0" class="pay-btn btn btn-default w3-col s2">
+								<img class="img-responsive img-center-mh" src="img/mastercard.png">
+							</button>
+							<button type="button" title="0" class="pay-btn btn btn-default w3-col s2">
+								<img class="img-responsive img-center-mh" src="img/visa.png">
+							</button>
+						</div>
+						<input id="r-pay-method" type="hidden" name="r-pay-method" value="-1">
+					</div>
+				</form>
+				<div class="w3-section w3-row w3-border-top w3-padding-16">
+					<button class="w3-button menu-text w3-right w3-text-white orangish btn-bring w3-small _next" onclick="showNewRequestFormBlockFour()"></button>
+				</div>
+
+				<!-- CONTAINER APPEND USER CURRENT BALANCE -->
+				<div class="show-user-balance"></div>
+
+			</div>
+
+			<div class="w3-section w3-center b5-unlock w3-hide">
+				<button class="w3-button menu-text w3-text-white orangish btn-bring w3-small" onclick="validateRFOne()">
+					<span class="_submit"></span> 
+					<span class="_request"></span>
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+
+
+</div>	
+<!-- CONTAINER APPEND JOURNEY FORM -->
+<div id="journey_form" class="w3-modal" style="padding-top:0px!important">
+  <div class="w3-animate-left">
+
+<!-- HEADER -->
+
+    <div class="w3-row w3-padding blueish w3-text-white">
+        <div class="w3-col s3">
+            <i class="fa w3-xxlarge fa-chevron-left" onclick="clearNewJorneyOrRequest()"></i>
+        </div>
+        <div class="w3-col s9">
+            <p class="w3-right" style="margin: 6px 0 6px">
+                <img class="img-responsive img-left_menu" src="img/journey_white.png">
+                <span class="_post menu-text" style="line-height: 29px"></span>
+                <span class="_journey menu-text"></span>
+            </p>
+        </div>
+    </div>
+
+<!-- BODY -->
+<form id="submit-a-journey">
+
+ 	<div class="w3-padding w3-white">
+	
+		<div class="w3-section w3-row">
+    
+        	<div class="_where_do_you_go bold w3-large w3-padding-16"></div>
+            
+        	<div class="form-group">
+	        	<input type="text" class="form-control input-lg _from" name="from" id="journeyrqfrom">
+	        	<input type="hidden" id="short_name_from" name="short_name_from">
+        	</div>
+
+        	<div class="form-group">
+            	<input type="text" class="form-control input-lg _to" name="to" id="journeyrqto">
+            	<input type="hidden" id="short_name_to" name="short_name_to">
+        	</div>
+        
+        	<div class="controls" id="add-stops"></div>
+
+        	<div class="form-group">
+            	<span class="w3-text-indigo _add_stop"></span> 
+            		<span class="w3-button w3-card-2 w3-large w3-circle w3-ripple w3-indigo" onclick="addStops()">
+            			<i class="fa fa-plus"></i>
+            	</span>
+        	</div>
+
+        	<div class="form-group">
+            	<input type="text" readonly class="form-control input-lg _date" name="date" id="journeyrqdate">
+        	</div>
+		</div>
+
+		<div class="w3-section travel w3-row" style="margin-bottom: 32px!important">
+
+        	<div class="_how_will_you_travel bold w3-large w3-padding-16"></div>
+
+       		<button type="button" title="plane" class="travel-btn btn btn-default w3-col s2">
+				<img class="img-responsive img-center-mh" src="img/plane.png">
+			</button>
+        	<button type="button" title="men" class="travel-btn btn btn-default w3-col s2">
+	        	<img src="img/men.png" class="img-responsive img-center-mh">
+        	</button>
+        	<button type="button" title="car" class="travel-btn btn btn-default w3-col s2">
+            	<img src="img/car.png" class="img-responsive img-center-mh">
+        	</button>
+       		<button type="button" title="bike" class="travel-btn btn btn-default w3-col s2">
+            	<img src="img/bike.png" class="img-responsive img-center-mh">
+	    	</button>
+        	<button type="button" title="ship" class="travel-btn btn btn-default w3-col s2">
+            	<img src="img/ship.png" class="img-responsive img-center-mh">
+        	</button>
+        	<button type="button" title="train" class="travel-btn btn btn-default w3-col s2">
+            	<img src="img/train.png" class="img-responsive img-center-mh">
+        	</button>
+        	<input id="travel_type" required name="transport" type="hidden">
+		</div>
+		
+		<div class="w3-section space w3-row">
+
+			<div class="_how_much_space_you_can_share bold w3-large w3-padding-16"></div>
+			
+            <div class="form-group">
+                <label for="width" class="w3-col s2 w3-padding-8-8 control-label">
+                   	<img src="img/measure-horizontal.png" class="img-responsive">
+                </label>
+            	<div class="w3-col s10 w3-padding-8-8">
+					<div class="input-group">
+                        <input type="number" name="width" min="0" class="_width form-control input-lg isNumeric maskedExt" id="width" maxlength="10" maskedformat="8,2">
+						<div class="input-group-addon">cm</div>	
+					</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+				<label for="height" class="w3-col s2 w3-padding-8-8 control-label">
+                    <img src="img/measure-vertical.png" class="img-responsive">
+                </label> 
+                <div class="w3-col s10 w3-padding-8-8">
+					<div class="input-group">
+                        <input type="number" name="height" min="0" class="_height form-control input-lg isNumeric maskedExt" id="height" maxlength="10" maskedformat="8,2">
+						<div class="input-group-addon">cm</div>
+					</div>
+                </div>
+            </div>
+
+			<div class="form-group">
+				<label for="length" class="w3-col s2 control-label w3-padding-8-8">
+                    <img src="img/icon_comprimento.png" class="img-responsive">
+                </label>
+                <div class="w3-col s10 w3-padding-8-8">
+						<div class="input-group">
+                        	<input type="number" name="length" min="0" class="_length form-control input-lg isNumeric maskedExt" id="length" maxlength="10" maskedformat="8,2">
+							<div class="input-group-addon">cm</div>
+						</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="volume" class="w3-col s2 w3-padding-8-8 control-label">
+                        <img src="img/measure-box.png" class="img-responsive">
+                    </label>
+                	<div class="w3-col w3-padding-8-8 s10">
+						<div class="input-group see-volume">
+                    		<input type="number" name="volume" min="0" class="_volume bold form-control input-lg isNumeric" id="volume" style="border-bottom:none" readonly>
+							<div class="input-group-addon">cm³</div>
+						</div>
+                	</div>
+                </div>
+
+				<div class="form-group">
+                    <label for="weight" class="w3-col s2 w3-padding-8-8 control-label">
+                        <img src="img/measure-scale.png" class="img-responsive">
+                    </label>
+                    <div class="w3-col w3-padding-8-8 s10">
+						<div class="input-group">
+                            <input type="number" name="weight" min="0" class="_weight form-control input-lg isNumeric maskedExt" id="weight" maxlength="10" maskedformat="8,2">
+							<div class="input-group-addon">grams</div>
+						</div>
+                    </div>
+                </div>
+
+            </div>
+
+			<div class="w3-section w3-row w3-center">
+				<input type="checkbox" class="my-check" required id="check" name="check">	
+				<span class="_i_have_read_and_agree_to_the"></span>
+				<br>
+				<span class="w3-text-blueish" onclick="getTermsConditions()">
+					<span class="_terms_conditions"></span>
+					<span class="w3-text-red">&nbsp;*</span>
+				</span>
+			</div>
+			<input type="hidden" name="rquest" value="createJourney">
+			<input type="hidden" name="idestado" value="1">
+			<div class="w3-section w3-row w3-center">
+				<br>
+				<button type="submit" class="w3-text-white w3-button btn-bring blueish menu-text w3-small"><span class="_post"></span> <span class="_journey"></span></button>
+			</div>
+  		</div>
+
+	</form>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$('.show-taxes-title').html('<span class="w3-medium w3-border-bottom">'+json.price_breakdown+'</span><br>')
+
+/*
+GET DATA FORM SERVER TO FILL NEW REQUEST FORM
+ CATEGORIES
+ 3X COMISSIONS
+*/
+
+/*NEW JOURNEY SCRIPT
+
+=================================
+===DATETIMEPICKER ACTIONS========
+=================================
+
+*/
+
+$('#r-buy-wherever').datetimepicker({
+	ignoreReadonly:true,
+	format: 'DD/MM/YYYY',
+	minDate : moment(),
+	widgetPositioning: {
+             horizontal: 'left',
+            vertical: 'top'
+        }
+    })
+
+$('#r-deliver-wherever').datetimepicker({
+    ignoreReadonly:true,
+	format: 'DD/MM/YYYY',
+	minDate : moment(),
+	widgetPositioning: {
+        horizontal: 'left',
+        vertical: 'top'
+    },
+    useCurrent: false
+})
+
+$("#r-buy-wherever").on("dp.change", function (e) {
+    $('#r-deliver-wherever').data("DateTimePicker").minDate(e.date)
+})
+$("#r-deliver-wherever").on("dp.change", function (e) {
+    $('#r-buy-wherever').data("DateTimePicker").maxDate(e.date)
+})
+
+
+function submitForm(){
+    var fd = new FormData(document.getElementById("fileinfo"))
+    $.ajax({
+    	url: 'https://www.bringobo.com/app_api/image.php',
+        type: "POST",
+        data: fd,
+        processData: false, 
+        contentType: false,
+        success:function(data){
+	    	$('#r-image-name').val(data)
+	    },
+	    error:function(data){
+        	$('#r-image-name').val('noimage.png')
+	    }
+	})
+	.done(function( data ) {
+		$('#r-image-name').val(data)
+	})
+    return false
+}
+
+/*PAYMEnTS TYPE AVAILABLE*/
+
+$('.r-pay').click(function(){
+	
+	$('.r-pay').removeClass('btn-default')
+	if($(this).hasClass('_pay_now')) {
+		$('#r-pay-type').val(this.title)
+		$('.r-payment-type').removeClass('w3-hide').addClass('w3-animate-zoom')
+		$('._pay_now').addClass('btn-info').removeClass('btn-default')
+		$('._pay_later').removeClass('btn-info').addClass('btn-default')
+		$('.pay-btn.btn-info').trigger('click')
+	}
+	else{
+		$('#r-pay-type').val(this.title)
+		$('._pay_later').addClass('btn-info').removeClass('btn-default')
+		$('._pay_now').removeClass('btn-info').addClass('btn-default')
+		$("button[title='-1']").trigger('click')
+		$('.r-payment-type').addClass('w3-hide')
+		$(".show-taxes-payment").empty()
+	}
+})
+
+
+$('.pay-btn').click(function(){
+	$('.pay-btn').removeClass('btn-info').addClass('btn-default')
+	$(this).addClass('btn-info').removeClass('btn-default')
+	$('#pay_method').val(this.title)
+
+	tx = JSON.parse(localStorage.getItem("taxes"))
+	v7 = parseFloat($('.show-traveller-rec').find('.w3-right').text().replace("€",""))
+
+	switch (parseInt(this.title)){
+		case -1:
+			$(".show-taxes-payment").empty()
+			v1 = parseFloat($('.show-taxes-product').find('.w3-right').text().replace("€",""))
+			v2 = parseFloat($('.show-taxes-buying').find('.w3-right').text().replace("€",""))
+			v3 = parseFloat($('.show-taxes-size').find('.w3-right').text().replace("€",""))
+			v4 = parseFloat($('.show-taxes-weight').find('.w3-right').text().replace("€",""))
+			v5 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€",""))
+			$('.show-taxes-total').html('<font>TOTAL:</font><font class="w3-right r-total">'+(v1+v2+v3+v4+v5).toFixed(2)+'€</font><br>')
+			$('.show-breakdown').removeClass('w3-hide')
+		break
+		case 0:
+			v1 = parseFloat($('.show-taxes-product').find('.w3-right').text().replace("€",""))
+			v2 = parseFloat($('.show-taxes-buying').find('.w3-right').text().replace("€",""))
+			v3 = parseFloat($('.show-taxes-size').find('.w3-right').text().replace("€",""))
+			v4 = parseFloat($('.show-taxes-weight').find('.w3-right').text().replace("€",""))
+			v5 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€",""))
+			$(".show-taxes-payment").html('<font>'+json.tax_payments+'</font><font class="w3-right r-total">'+((v5+v7)*parseFloat(tx[0].hipay_percentage/100)+parseFloat(tx[0].hipay_tax)).toFixed(2)+'€</font><br>')
+			v6 = parseFloat($('.show-taxes-payment').find('.w3-right').text().replace("€",""))
+			$('.show-taxes-total').html('<font>TOTAL:</font><font class="w3-right r-total">'+(v1+v2+v3+v4+v5+v6).toFixed(2)+'€</font><br>')
+			$('.show-breakdown').removeClass('w3-hide')
+		break
+		case 1:
+			v1 = parseFloat($('.show-taxes-product').find('.w3-right').text().replace("€",""))
+			v2 = parseFloat($('.show-taxes-buying').find('.w3-right').text().replace("€",""))
+			v3 = parseFloat($('.show-taxes-size').find('.w3-right').text().replace("€",""))
+			v4 = parseFloat($('.show-taxes-weight').find('.w3-right').text().replace("€",""))
+			v5 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€",""))
+			$(".show-taxes-payment").html('<font>'+json.tax_payments+'</font><font class="w3-right r-total">'+((v5+v7)*parseFloat(tx[1].paypal_percentage/100)+parseFloat(tx[1].paypal_tax)).toFixed(2)+'€</font><br>')
+			v6 = parseFloat($('.show-taxes-payment').find('.w3-right').text().replace("€",""))
+			$('.show-taxes-total').html('<font>TOTAL:</font><font class="w3-right r-total">'+(v1+v2+v3+v4+v5+v6).toFixed(2)+'€</font><br>')
+			$('.show-breakdown').removeClass('w3-hide')
+		break
+		case 2:
+			$(".show-taxes-payment").html('<font>'+json.tax_payments+'</font><font class="w3-right r-total">'+parseFloat(tx[2].comprafacil_tax).toFixed(2)+'€</font><br>')
+			v1 = parseFloat($('.show-taxes-product').find('.w3-right').text().replace("€",""))
+			v2 = parseFloat($('.show-taxes-buying').find('.w3-right').text().replace("€",""))
+			v3 = parseFloat($('.show-taxes-size').find('.w3-right').text().replace("€",""))
+			v4 = parseFloat($('.show-taxes-weight').find('.w3-right').text().replace("€",""))
+			v5 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€",""))
+			v6 = parseFloat($('.show-taxes-payment').find('.w3-right').text().replace("€",""))
+			$('.show-taxes-total').html('<font>TOTAL:</font><font class="w3-right r-total">'+(v1+v2+v3+v4+v5+v6).toFixed(2)+'€</font><br>')
+			$('.show-breakdown').removeClass('w3-hide')
+		break
+	}
+
+
+
+
+
+})
+
+function updateRequestDataToForm(){
+  $.ajax({ 
+      url:url+'rquest=getNewrequestsDataToForm',
+      type:'GET',
+      cache:false,
+      dataType:'json',
+      success: function(data){
+        if(data.status=='success'){
+			if(JSON.stringify(data.category) != localStorage.getItem("category")) localStorage.setItem("category",JSON.stringify(data.category))
+			if(JSON.stringify(data.comission_1) != localStorage.getItem("comission_1")) localStorage.setItem("comission_1",JSON.stringify(data.comission_1))
+			if(JSON.stringify(data.comission_2) != localStorage.getItem("comission_2")) localStorage.setItem("comission_2",JSON.stringify(data.comission_2))
+			if(JSON.stringify(data.taxes) != localStorage.getItem("taxes")) localStorage.setItem("taxes",JSON.stringify(data.taxes))
+        }
+    }
+  })
+}
+
+
+$('#r-weight').keyup(function() {
+	!$(this).val() ? wt=0 : wt = parseInt($(this).val())
+	if (wt > 0){
+		cmx2 = JSON.parse(localStorage.getItem("comission_2"))
+		$('.show-taxes-weight').html('<font>'+json.tax_weight+'</font><font class="w3-right r-total">'+parseFloat(cmx2[0].price_per_g *wt).toFixed(2)+'€</font><br>')
+       	$('.show-breakdown').removeClass('w3-hide')
+       	calculateComissions()
+    }
+    else $('.show-taxes-weight,.show-traveller-cmx,.show-traveller-rec,.show-taxes-payment,.show-taxes-bringobo,.show-taxes-total').empty()
+})
+
+
+$('#r-length,#r-width,#r-height').keyup(function() {
+	l = $('#r-length').val()
+	w = $('#r-width').val()
+	h = $('#r-height').val()
+	
+	!l ? l=0 : l = parseInt(l)
+	!w ? w=0 : w = parseInt(w)
+	!h ? h=0 : h = parseInt(h)
+	
+	v = l*w*h
+
+	if(v > 0){ 
+		cmx2 = JSON.parse(localStorage.getItem("comission_2"))	
+		$('.show-taxes-size').html('<font>'+json.tax_size+'</font><font class="w3-right r-total">'+parseFloat(cmx2[0].price_per_cm *v).toFixed(2)+'€</font><br>')
+        $('.show-breakdown').removeClass('w3-hide')
+		$('#r-volume').val(v)
+		$('.show-taxes-weight,.show-traveller-cmx,.show-traveller-rec,.show-taxes-payment,.show-taxes-bringobo,.show-taxes-total').empty()
+	}
+	else{
+		$('#r-volume').val('')
+		$('.show-taxes-size,.show-taxes-weight,.show-traveller-cmx,.show-traveller-rec,.show-taxes-payment,.show-taxes-bringobo,.show-taxes-total').empty()
+		}
+})
+
+
+$('#r-price').change(function(){
+	price = $(this).val()
+	if (price > '0'){
+	cmx1 = JSON.parse(localStorage.getItem("comission_1"))
+	cmx = 0
+	for (g=0; g<cmx1.length; g++){
+		if(Number(price) <= Number(cmx1[g].max_price) && Number(price) > Number(cmx1[g].min_price)){
+			cmx = cmx1[g].percentage/100 * price
+		}
+	}
+	$('.show-taxes-size,.show-taxes-weight,.show-traveller-cmx,.show-traveller-rec,.show-taxes-payment,.show-taxes-bringobo,.show-taxes-total').empty()
+	$('.show-taxes-product').html('<font>'+json.product+' '+json.price_on_store+': </font><font class="w3-right r-total">'+parseFloat($('#r-price').val()).toFixed(2)+'€</font><br>')
+	$('.show-taxes-buying').html('<font>'+json.tax_buying+' </font><font class="w3-right r-total">'+parseFloat(cmx).toFixed(2)+'€</font><br>')
+	$('.show-breakdown').removeClass('w3-hide')
+
+	}
+
+	else $('.show-taxes-product,.show-taxes-buying,.show-taxes-size,.show-taxes-weight,.show-traveller-cmx,.show-traveller-rec,.show-taxes-payment,.show-taxes-bringobo,.show-taxes-total').empty()
+})
+
+
+function showNewRequestFormBlockOne(){
+	$('.w3-overlay').show()	
+	$('._required').addClass('w3-hide')
+	if($('#upload').val()) $('.upload-result').trigger('click')
+	part1 = '&r-idcliente='+localStorage.getItem('idcliente')+'&r-url='+$('#r-url').val()+'&r-category='+$('#r-category').val()+'&r-price='+$('#r-price').val()+'&r-name='+$('#r-name').val()+'&r-description='+$('#r-description').val()+'&r-image='+$('#upload').val()
+	
+	setTimeout(function(){
+
+    	$.ajax({
+			url:url+'rquest=createRequest&part=1'+part1,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			$('.w3-overlay').hide()
+       			if(data.status=='success'){
+    				$('.b1').addClass('w3-hide')
+					$('.b1-unlock').addClass('w3-pale-green').prop('onclick',null).off('click')
+					$('.b2-unlock').removeClass('w3-opacity')
+					showNewRequestFromBlocks('2','1','3','4','0')
+					$('#fileinfo').trigger('submit')
+					$("#request_form").animate({ scrollTop: 0}, 'slow')
+        		}
+        		else{
+          			for(d=0;d<data.data.err.length;d++)
+					$('#r-'+data.data.err[d]).next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+
+function showNewRequestFormBlockTwo(){
+	$('.w3-overlay').show()
+	$('._required').addClass('w3-hide')
+	part2 = $('#request-part-2').serialize()+'&r-buy-country='+$('#r-buy-country option:selected').text()+'&r-deliver-country='+$('#r-deliver-country option:selected').text() 
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=2&'+part2,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			$('.w3-overlay').hide()
+       			if(data.status=='success' ){
+    				$('.b2').addClass('w3-hide')
+					$('.b2-unlock').addClass('w3-pale-green')
+					$('.b3-unlock').removeClass('w3-opacity')
+					showNewRequestFromBlocks('3','1','2','4','0')
+					$("#request_form").animate({ scrollTop: 0}, 'slow')
+        		}
+        		else{
+        			for(d=0;d<data.data.err.length;d++){
+						$('#r-deliver-'+data.data.err[d]).next().removeClass('w3-hide')
+						$('.r-deliver-'+data.data.err[d]).removeClass('w3-hide')
+					}
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+
+		}, 500)
+}
+
+
+
+function showNewRequestFormBlockTree(){
+	$('.w3-overlay').show()
+	$('._required').addClass('w3-hide')
+	part3 = $('#request-part-3').serialize()
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=3&'+part3,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			$('.w3-overlay').hide()
+       			if(data.status=='success' ){
+    				$('.b3').addClass('w3-hide')
+					$('.b3-unlock').addClass('w3-pale-green')
+					$('.b4-unlock').removeClass('w3-opacity')
+					showNewRequestFromBlocks('4','1','2','3','0')
+					$("#request_form").animate({ scrollTop: 0}, 'slow')
+        		}
+        		else{
+        			for(d=0;d<data.data.err.length;d++)
+					$('#r-'+data.data.err[d]).parent().next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+function showNewRequestFormBlockFour(){
+
+	$('._required').addClass('w3-hide')
+
+	price = $('#r-price').val()
+	cmx2 = JSON.parse(localStorage.getItem("comission_2"))	
+	cmx1 = JSON.parse(localStorage.getItem("comission_1"))
+	cmx = 0
+	for (g=0; g<cmx1.length; g++){
+		if(Number(price) <= Number(cmx1[g].max_price) && Number(price) >= Number(cmx1[g].min_price)){
+			val_cmx = cmx1[g].percentage/100 * price
+		}
+	}
+	vol = $('#r-volume').val()
+		if (vol > 0){	
+			val_size =parseFloat(cmx2[0].price_per_cm *vol).toFixed(2)  
+	}
+	weig = $('#r-weight').val()
+		if (weig > 0){	
+			val_weight =parseFloat(cmx2[0].price_per_gr *weig).toFixed(2)  
+	}
+
+	tr_cmx = val_cmx+val_size+val_weight
+	tr_rec = tr_cmx+price
+
+	price  ?  v1 = parseFloat(price) : v1 = 0
+	val_cmx ? v2 = parseFloat(val_cmx).toFixed(2) : v2 = 0
+	val_size? v3 = parseFloat(val_size) : v3 = 0
+	val_weight ? v4 = parseFloat(val_weight) : v4 = 0 
+	tr_cmx ? v5 = parseFloat(tr_cmx).toFixed(2) : v5 = 0
+	tr_rec ? v6 = parseFloat(tr_rec).toFixed(2) : v6 = 0
+
+	$('.pay-btn.btn-info').trigger('click')
+
+	$('.show-taxes-payment').find('.w3-right').text().replace("€","") ? v7 = parseFloat($('.show-taxes-payment').find('.w3-right').text().replace("€","")) : v7 = 0
+	$('.show-taxes-bringobo').find('.w3-right').text().replace("€","") ? v8 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€","")) : v8 = 0
+	$('.show-taxes-total').find('.w3-right').text().replace("€","") ? v9 = parseFloat($('.show-taxes-total').find('.w3-right').text().replace("€","")) : v9 = 0
+	$('.show-traveller-rec').find('.w3-right').text().replace("€","") ? v11 = parseFloat($('.show-traveller-rec').find('.w3-right').text().replace("€","")) : v11 = 0
+	v10 = $('.balance-value').text().replace("€","")
+
+	if(v9>v10 && $('#r-pay-type').val()=='1' && $('#r-pay-method').val() =='-1' ){
+    	$('#info-client').modal()
+    	$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+    	$('.info-client-txt').html(json.no_funds)
+	}
+	
+	else if($('#account-status').val() !='active'){
+    	$('#info-client').modal()
+    	$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+    	$('.info-client-txt').html(json.user_not_active)
+	}
+
+	else{
+		$('.w3-overlay').show()
+		if($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == -1) idestado = 2
+		else if ($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 1 || $('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 0 || $('#r-pay-type').val() == 2  ) idestado = 1
+		else if ($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 2) idestado = 4
+
+	part4 = $('#request-part-4').serialize()+'&r-tx-prod='+v1+'&r-tx-b='+v2+'&r-tx-s='+v3+'&r-tx-w='+v4+'&r-tr-cmx='+v5+'&r-tr-receive='+v11+'&r-tx-payment='+v7+'&r-tx-bringobo='+v8+'&r-total='+v9+'&r-idestado='+idestado
+
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=4&'+part4,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			$('.w3-overlay').hide()
+       			if(data.status=='success'){
+    				$('.b4').addClass('w3-hide')
+					$('.b4-unlock').addClass('w3-pale-green')
+					$('.b5-unlock').removeClass('w3-hide')
+        		}
+        		else{
+        			for(d=0;d<data.data.err.length;d++)
+					$('#r-'+data.data.err[d]).parent().next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+}
+
+/*ARR TO OUT ALL DATA OF NEW REQUEST DATA TO SAVE ON DB*/
+newRequest=[]
+
+function validateRFOne(){
+	$('.w3-overlay').show()
+	if($('#upload').val()) $('.upload-result').trigger('click')
+	setTimeout(function(){
+		part1 = '&r-idcliente='+localStorage.getItem('idcliente')+'&r-url='+$('#r-url').val()+'&r-category='+$('#r-category').val()+'&r-price='+$('#r-price').val()+'&r-name='+$('#r-name').val()+'&r-description='+$('#r-description').val()+'&r-image='+$('#upload').val()
+    	$.ajax({
+      		url:url+'rquest=createRequest&part=1'+part1,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			if(data.status=='success'){
+       				/*ADD DATA BLOCK 1 TO ARRAY  */
+       				newRequest.push(part1)
+       				$('.b1-unlock').addClass('w3-pale-green')
+       				/*FIELD BLOCK 1 OK PROCEED TO BLOCK 2*/
+					validateRFTwo()
+        		}
+        		else{
+        			$('.w3-overlay').hide()
+        			/*SHOW BLOCK THAT HAS ERROR REMOVE GREEN COLOR EXTEND FORM AND ADD REQUIRED*/
+        			$('.b1-unlock').removeClass('w3-pale-green')
+        			showNewRequestFromBlocks(data.data.part,'0','0','0','0')
+          			for(d=0;d<data.data.err.length;d++)
+						$('#r-'+data.data.err[d]).next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+function validateRFTwo(){
+	part2 = $('#request-part-2').serialize()+'&r-buy-country='+$('#r-buy-country option:selected').text()+'&r-deliver-country='+$('#r-deliver-country option:selected').text() 
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=2&'+part2,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			if(data.status=='success' ){
+       			/*ADD DATA BLOCK 2 TO ARRAY  */
+       				newRequest.push('&'+part2)
+       				$('.b2-unlock').addClass('w3-pale-green')
+    			/*FIELD BLOCK 2 OK PROCEED TO BLOCK 3*/
+					validateRFTree()
+        		}
+        		else{
+        			$('.w3-overlay').hide()
+        			/*SHOW BLOCK THAT HAS ERROR REMOVE GREEN COLOR EXTEND FORM AND ADD REQUIRED*/
+        			$('.b2-unlock').removeClass('w3-pale-green')
+        			showNewRequestFromBlocks(data.data.part,'0','0','0','0')
+        			for(d=0;d<data.data.err.length;d++){
+						$('#r-deliver-'+data.data.err[d]).next().removeClass('w3-hide')
+						$('.r-deliver-'+data.data.err[d]).removeClass('w3-hide')
+					}
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+
+
+function validateRFTree(){
+	part3=$('#request-part-3').serialize()
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=3&'+part3,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			if(data.status=='success' ){
+       			/*ADD DATA BLOCK 3 TO ARRAY  */
+       				newRequest.push('&'+part3)
+       				$('.b3-unlock').addClass('w3-pale-green')
+    			/*FIELD BLOCK 2 OK PROCEED TO BLOCK 3*/
+					validateRFFour()
+        		}
+        		else{
+        			$('.w3-overlay').hide()
+        			/*SHOW BLOCK THAT HAS ERROR REMOVE GREEN COLOR EXTEND FORM AND ADD REQUIRED*/
+        			$('.b3-unlock').removeClass('w3-pale-green')
+        			showNewRequestFromBlocks(data.data.part,'0','0','0','0')
+        			for(d=0;d<data.data.err.length;d++)
+						$('#r-'+data.data.err[d]).parent().next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+
+	}, 500)
+}
+
+function validateRFFour(){
+
+	price = $('#r-price').val()
+	cmx2 = JSON.parse(localStorage.getItem("comission_2"))	
+	cmx1 = JSON.parse(localStorage.getItem("comission_1"))
+	cmx = 0
+	for (g=0; g<cmx1.length; g++){
+		if(Number(price) <= Number(cmx1[g].max_price) && Number(price) >= Number(cmx1[g].min_price)){
+			val_cmx = cmx1[g].percentage/100 * price
+		}
+	}
+	vol = $('#r-volume').val()
+		if (vol > 0){	
+			val_size =parseFloat(cmx2[0].price_per_cm *vol).toFixed(2)  
+	}
+	weig = $('#r-weight').val()
+		if (weig > 0){	
+			val_weight =parseFloat(cmx2[0].price_per_gr *weig).toFixed(2)  
+	}
+
+	tr_cmx = val_cmx+val_size+val_weight
+	tr_rec = tr_cmx +price
+
+	price  ?  v1 = parseFloat(price) : v1 = 0
+	val_cmx ? v2 = parseFloat(val_cmx).toFixed(2) : v2 = 0
+	val_size? v3 = parseFloat(val_size) : v3 = 0
+	val_weight ? v4 = parseFloat(val_weight) : v4 = 0 
+	tr_cmx ? v5 = parseFloat(tr_cmx).toFixed(2) : v5 = 0
+	tr_rec ? v6 = parseFloat(tr_rec).toFixed(2) : v6 = 0
+
+	$('.pay-btn.btn-info').trigger('click')
+
+	$('.show-taxes-payment').find('.w3-right').text().replace("€","") ? v7 = parseFloat($('.show-taxes-payment').find('.w3-right').text().replace("€","")) : v7 = 0
+	$('.show-taxes-bringobo').find('.w3-right').text().replace("€","") ? v8 = parseFloat($('.show-taxes-bringobo').find('.w3-right').text().replace("€","")) : v8 = 0
+	$('.show-taxes-total').find('.w3-right').text().replace("€","") ? v9 = parseFloat($('.show-taxes-total').find('.w3-right').text().replace("€","")) : v9 = 0
+		$('.show-traveller-rec').find('.w3-right').text().replace("€","") ? v11 = parseFloat($('.show-traveller-rec').find('.w3-right').text().replace("€","")) : v11 = 0
+
+	if($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == -1) idestado = 2
+	else if ($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 1 || $('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 0 || $('#r-pay-type').val() == 2  ) idestado = 1
+	else if ($('#r-pay-type').val() == 1 && $('#r-pay-method').val() == 2) idestado = 4
+
+	part4 = $('#request-part-4').serialize()+'&r-tx-prod='+v1+'&r-tx-b='+v2+'&r-tx-s='+v3+'&r-tx-w='+v4+'&r-tr-cmx='+v5+'&r-tr-receive='+v11+'&r-tx-payment='+v7+'&r-tx-bringobo='+v8+'&r-total='+v9+'&r-idestado='+idestado
+
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=4&'+part4,
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+       			if(data.status=='success'){
+       			/*ADD DATA BLOCK 4 TO ARRAY  */
+       				newRequest.push('&'+part4)
+       				$('.b4-unlock').addClass('w3-pale-green')
+    			/*ALL BOCKS FIELDS 1,2,3,4 OK PROCEED TO SAVE DATA TO DB*/
+					createRequest(newRequest)
+        		}
+        		else{
+        			$('.w3-overlay').hide()
+        			/*SHOW BLOCK THAT HAS ERROR REMOVE GREEN COLOR EXTEND FORM AND ADD REQUIRED*/
+        			$('.b4-unlock').removeClass('w3-pale-green')
+        			showNewRequestFromBlocks(data.data.part,'0','0','0','0')
+        			for(d=0;d<data.data.err.length;d++)
+						$('#r-'+data.data.err[d]).parent().next().removeClass('w3-hide')
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+
+function createRequest(array){
+
+balance = parseFloat($('.balance-value').text().replace("€",""))
+
+	setTimeout(function(){
+    	$.ajax({ 
+      		url:url+'rquest=createRequest&part=5&data='+array+'&r-image-name='+$('#r-image-name').val()+'&account-number='+$('#account-number').val()+'&account-balance='+balance+'&account-status='+$('#account-status').val(),
+      		type:'GET',
+      		cache:false,
+      		dataType:'json',
+      		success: function(data){
+      			$('.w3-overlay').hide()
+       			if(data.status=='success'){
+       				clearNewJorneyOrRequest()
+    				$('#info-client').modal()
+          			$('.info-client-header').html('<span class="w3-text-green"><i class="fa fa-check"></i> '+json.success+'</span>')
+          			$('.info-client-txt').html(json.record+' #'+data.data.id+' '+json.inserted)
+         			$("html, body").animate({ scrollTop: $('#modal-menu').offset().top }, 1000)
+					getUserRequestJourneysReviews('Request',localStorage.getItem('idcliente'))
+        		}
+        		else{
+					$('#info-client').modal()
+       				$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+       				$('.info-client-txt').html(json.record)
+        		}
+      		},
+      		error: function(data){
+        		$('.w3-overlay').hide()
+       			$('#info-client').modal()
+       			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        		$('.info-client-txt').html(json.no_wifi)
+      		}
+    	})
+	}, 500)
+}
+
+
+/*NEW REQUEST SCRIPT*/	
+
+/*LOAD IMAGE CROPPPING PLUGIN*/
+demoUpload()
+
+/*APPEND DATA TO FORM*/
+
+c = JSON.parse(localStorage.getItem("category"))
+option='<option selected value="">'+json.category+' *</option>'
+	for(i=0;i<c.length;i++){	
+		option+='<option value="'+c[i].idcat+'">'+c[i].categoria+'</option>'
+	}
+$('#r-category').html(option)
+
+ctr = JSON.parse(localStorage.getItem("allcountries"))
+add_countries='<option selected value="">'+json.country+'</option>'
+	for(i=0;i<ctr.length;i++){	
+		add_countries+='<option value="'+ctr[i].id+'">'+ctr[i].name+'</option>'
+	}
+$('.set-countries').html(add_countries)
+
+
+/*
+SHOW HIDE REQUEST FORM BLOCKS
+ 1º PARAM SHOW
+ OTHERS HIDE
+*/
+
+
+function calculateComissions(){
+		tx = JSON.parse(localStorage.getItem("taxes"))
+		v1 = parseFloat($('.show-taxes-product').find('.w3-right').text().replace("€",""))
+		v2 = parseFloat($('.show-taxes-buying').find('.w3-right').text().replace("€",""))
+		v3 = parseFloat($('.show-taxes-size').find('.w3-right').text().replace("€",""))
+		v4 = parseFloat($('.show-taxes-weight').find('.w3-right').text().replace("€",""))
+		bringobo_tx = (v1+v2+v3+v4).toFixed(2) * tx[3].trolley_percentage/100
+		$('.show-traveller-cmx').html('<font>'+json.traveller_commission+'</font><font class="w3-right">'+(v2+v3+v4).toFixed(2)+'€</font><br>')
+		$('.show-traveller-rec').html('<font>'+json.traveller_receive+'</font><font class="w3-right">'+(v1+v2+v3+v4).toFixed(2)+'€</font><br>')
+		$('.show-taxes-bringobo').html('<font>'+json.process_bringobank+'</font><font class="w3-right">'+bringobo_tx.toFixed(2)+'€</font><br>')
+		$('.show-taxes-total').empty()
+	}
+
+
+
+function showNewRequestFromBlocks(a,b,c,d){
+
+	/*ON LAST BLOCK 4*/
+	if(a == 4) {
+		/* GET ACCOUNT BALANCE*/
+		getUserBank()
+		calculateComissions()
+		$('._required').addClass('w3-hide')
+		$('.b'+a).removeClass('w3-hide')
+		$('.b'+a+'-unlock').removeClass('w3-opacity')
+		$('.b'+b+',.b'+c+',.b'+d).addClass('w3-hide')
+		$("button[title='-1']").trigger('click')
+	}
+
+	else{
+		$('._required').addClass('w3-hide')
+		$('.b'+a).removeClass('w3-hide')
+		$('.b'+a+'-unlock').removeClass('w3-opacity')
+		$('.b'+b+',.b'+c+',.b'+d).addClass('w3-hide')
+	}
+}
+
+
+
+
+function getUserBank(){
+	$.ajax({ 
+      	url:url+'rquest=getUserBank'+'&idcliente='+localStorage.getItem('idcliente'),
+      	type:'GET',
+      	cache:false,
+      	dataType:'json',
+      	success: function(data){
+        	if(data.status=='success'){
+        	$('.show-user-balance').html('<div class="w3-col s12"><p class="w3-center"><span class="w3-medium">'+json.account_balance+'</span><span class="bold w3-xlarge balance-value">'+data.data.balance+'€</span></p><input type="hidden" value="'+data.data.account_status+'" id="account-status"><input type="hidden" id="account-number" value="'+data.data.account_number+'"></div>')
+        	}
+      	},
+      	error: function(data){
+      	}
+   	})
+}
+
+
+/*NEW JOURNEY SCRIPT*/	
+$('#journeyrqdate').datetimepicker({
+	ignoreReadonly:true,
+	format: 'DD/MM/YYYY',
+	minDate : moment(),
+	//defaultDate : moment(),
+	widgetPositioning: {
+             horizontal: 'right',
+            vertical: 'top'
+        }
+    })
+
+function shortNameFrom(){
+	from = f.getPlace()
+	for (i=0;i<from.address_components.length;i++) {
+		if(from.address_components[i].short_name.match(/[A-Z]{2}/)) iso_f = from.address_components[i].short_name
+	}
+	$('#short_name_from').val(iso_f)
+}
+
+function shortNameTo(){
+	to = t.getPlace()
+	for (i=0;i<to.address_components.length;i++) {
+		if(to.address_components[i].short_name.match(/[A-Z]{2}/)) iso_t = to.address_components[i].short_name
+	}
+	$('#short_name_to').val(iso_t)
+}
+
+
+setTimeout(function(){
+	localStorage.getItem("language") == 2 ? 
+	$('#journeyrqdate').data('DateTimePicker').locale('pt-PT') : 
+	$('#journeyrqdate').data('DateTimePicker').locale('en-GB')
+  	f = new google.maps.places.Autocomplete((document.getElementById("journeyrqfrom")),{types: ['geocode']})
+  	t = new google.maps.places.Autocomplete((document.getElementById("journeyrqto")),{types: ['geocode']})
+	f.addListener('place_changed', shortNameFrom)
+    t.addListener('place_changed', shortNameTo)
+}, 150)
+
+function addStops(){
+	stop_journey=[]
+	count = 1+$('.aditional-stop').length
+	$('#add-stops').append('<div id="'+json.stop+'-'+count+'" class="form-group aditional-stop"><div class="input-group"><input id="j-'+json.stop+'-'+count+'" type="text" class="form-control stop-tr input-lg" placeholder="'+json.stop+':" name="stops[]"><div class="input-group-addon w3-red" onclick="$(\'#'+json.stop+'-'+count+'\').empty()"><i class="w3-large fa fa-trash"></i></div></div></div>')
+		stop_journey.push(new google.maps.places.Autocomplete((document.getElementById('j-'+json.stop+'-'+count)),{types: ['geocode']}))
+}
+
+$('.travel-btn').click(function(){
+	$('.travel-btn').removeClass('btn-info').addClass('btn-default')
+	$(this).addClass('btn-info').removeClass('btn-default')
+	$('#travel_type').val(this.title)
+})
+
+
+
+
+$('#length,#width,#height').keyup(function() {
+	l = $('#length').val()
+	w = $('#width').val()
+	h = $('#height').val()
+	
+	!l ? l=0 : l = parseInt(l)
+	!w ? w=0 : w = parseInt(w)
+	!h ? h=0 : h = parseInt(h)
+	
+	v = l*w*h
+
+	v > 0 ? $('#volume').val(v) : $('#volume').val('')
+})
+
+
+$('#submit-a-journey').on('submit',function(e){
+	e.preventDefault()
+	if(!$('#journeyrqdate').val() || !$('#journeyrqfrom').val() || !$('#journeyrqto').val())
+	{
+		$("#journey_form").animate({ scrollTop: 90 }, 'slow')
+    	$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        $('.info-client-txt').html(json.where_do_you_go+'<br>'+json.check_try_again)
+        $('#info-client').modal()
+	}
+	else if(!$('#length').val() || !$('#width').val() || !$('#height').val() || !$('#weight').val()){
+		$("#journey_form").animate({ scrollTop: 360 }, "slow")
+		$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        $('.info-client-txt').html(json.how_much_space_you_can_share+'<br>'+json.check_try_again)
+        $('#info-client').modal()
+	}
+	else if(!$('#travel_type').val()){
+		$("#journey_form").animate({ scrollTop: 460 }, 'slow')
+		$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        $('.info-client-txt').html(json.how_will_you_travel+'<br>'+json.check_try_again)
+        $('#info-client').modal()
+	}
+	else if(!$('#check').val()){
+		$("#journey_form").animate({scrollTop: 460},'slow')
+    	$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        $('.info-client-txt').html(json.i_have_read_and_agree_to_the+'<br>'+json.check_try_again)
+        $('#info-client').modal()
+	}
+	else{
+
+		$('.w3-overlay').show()
+  		setTimeout(function(){ 
+    		$.ajax({ 
+      			url:url+$('#submit-a-journey').serialize()+'&idcliente='+localStorage.getItem('idcliente'),
+      			type:'GET',
+      			cache:false,
+      			dataType:'json',
+      			success: function(data){
+        			$('.w3-overlay').hide()
+        			if(data.status=='success'){
+    					$('#info-client').modal()
+          				$('.info-client-header').html('<span class="w3-text-green"><i class="fa fa-check"></i> '+json.success+'</span>')
+          				$('.info-client-txt').html(json.record+' #'+data.data+' '+json.inserted)
+          				$('#submit-a-journey').trigger('reset')
+          				$('#add-stops').empty()
+          				$('.travel-btn').removeClass('btn-info').addClass('btn-default')
+          				$("#journey_form").animate({ scrollTop: 90 }, 'slow')
+        			}
+        			else{
+          				$('#info-client').modal()
+          				$('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-info-circle"></i> '+json.check+'</span>')
+          				$('.info-client-txt').html(data.data)
+        			}
+      			},
+      			error: function(data){
+        			$('.w3-overlay').hide()
+        			$('#info-client').modal()
+        			$('.info-client-header').html('<span class="w3-text-red"><i class="fa fa-exclamation-triangle"></i> '+json.check+'</span>')
+        			$('.info-client-txt').html(json.no_wifi)
+      			}
+    		})
+  		},750)
+	}
+})
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,103 @@
+<div class="w3-animate-right full-w-h">
+
+<!-- HEADER -->
+
+    <div class="w3-row w3-padding orangish w3-text-white">
+        <div class="w3-col s3">
+            <i class="fa w3-xxlarge fa-chevron-left" onclick="$('#menu-main-page').hide()"></i>
+        </div>
+        <div class="w3-col s9">
+            <p class="t-a-r-mrg-6-6">
+                <i class="fa fa-search w3-large"></i>
+                <span class="_request menu-text"></span>
+            </p>
+        </div>
+    </div>
+
+<!-- BODY -->
+    <div class="w3-row w3-white h-100">
+        <div class="w3-padding">
+            <form id="search-request">
+                <div class="w3-section w3-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg _from" name="from" id="journeyrqfrom" placeholder="From:" autocomplete="off">
+                        <input type="hidden" id="short_name_from" name="short_name_from">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg _to" name="to" id="journeyrqto" placeholder="To:" autocomplete="off">
+                        <input type="hidden" id="short_name_to" name="short_name_to">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" readonly class="form-control input-lg _date" name="date" id="journeyrqdate" placeholder="Date:">
+                    </div>
+
+                    <button class="w3-button w3-card-2 w3-xlarge w3-circle w3-ripple orangish w3-text-white w3-right"> 
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+$('#journeyrqdate').datetimepicker({
+    ignoreReadonly:true,
+    format: 'DD/MM/YYYY',
+    minDate : moment(),
+    //defaultDate : moment(),
+    widgetPositioning: {
+             horizontal: 'left',
+            vertical: 'bottom'
+        }
+    })
+
+function shortNameFrom(){
+    from = f.getPlace()
+    for (i=0;i<from.address_components.length;i++) {
+        if(from.address_components[i].short_name.match(/[A-Z]{2}/)) iso_f = from.address_components[i].short_name
+    }
+    $('#short_name_from').val(iso_f)
+}
+
+function shortNameTo(){
+    to = t.getPlace()
+    for (i=0;i<to.address_components.length;i++) {
+        if(to.address_components[i].short_name.match(/[A-Z]{2}/)) iso_t = to.address_components[i].short_name
+    }
+    $('#short_name_to').val(iso_t)
+}
+
+
+setTimeout(function(){
+    localStorage.getItem("language") == 2 ? 
+    $('#journeyrqdate').data('DateTimePicker').locale('pt-PT') : 
+    $('#journeyrqdate').data('DateTimePicker').locale('en-GB')
+    f = new google.maps.places.Autocomplete((document.getElementById("journeyrqfrom")),{types: ['geocode']})
+    t = new google.maps.places.Autocomplete((document.getElementById("journeyrqto")),{types: ['geocode']})
+    f.addListener('place_changed', shortNameFrom)
+    t.addListener('place_changed', shortNameTo)
+}, 150)
+
+
+
+$('#search-request').on('submit',function(e){
+    e.preventDefault()
+    if( !$('#journeyrqfrom').val() && !$('#journeyrqto').val() && !$('#journeyrqdate').val()){
+        $('#info-client').modal()
+        $('.info-client-header').html('<span class="w3-text-amber"><i class="fa fa-info-circle"></i> '+json.check+'</span>')
+        $('.info-client-txt').html(json.search_fields_empty)
+    }
+    
+    else {
+        alert($(this).serialize())
+    }
+})
+
+
+</script>
+
+
